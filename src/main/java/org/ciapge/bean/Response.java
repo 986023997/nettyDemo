@@ -1,4 +1,4 @@
-package bean;
+package org.ciapge.bean;
 
 /**
  * @author 朱林
@@ -9,6 +9,9 @@ public class Response {
     private String responseId;
     private String requestId;
     private String result;
+
+    public Response() {
+    }
 
     public Response(String responseId, String requestId, String result) {
         this.responseId = responseId;

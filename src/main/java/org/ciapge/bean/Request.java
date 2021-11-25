@@ -1,4 +1,4 @@
-package bean;
+package org.ciapge.bean;
 
 /**
  * @author 朱林
