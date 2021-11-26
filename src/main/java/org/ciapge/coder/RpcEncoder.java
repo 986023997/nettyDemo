@@ -1,13 +1,9 @@
-package coder;
+package org.ciapge.coder;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
-import io.netty.util.concurrent.EventExecutorGroup;
-import utils.SerializationUtil;
-
-import javax.xml.ws.Response;
+import org.ciapge.utils.SerializationUtil;
 
 /**
  * @author 朱林

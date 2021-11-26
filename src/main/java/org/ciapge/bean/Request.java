@@ -9,6 +9,7 @@ public class Request {
     private String requestId;
     private Object param;
 
+
     public String getRequestId() {
         return requestId;
     }

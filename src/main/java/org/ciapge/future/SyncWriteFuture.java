@@ -1,8 +1,6 @@
-package future;
+package org.ciapge.future;
 
-import bean.Response;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
+import org.ciapge.bean.Response;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
@@ -19,6 +17,14 @@ public class SyncWriteFuture implements WriteFuture<Response> {
     private CountDownLatch latch = new CountDownLatch(1);
     private Response response;
     private String requestId;
+    private Throwable cause;
+    private boolean writeSuccess;
+
+    public SyncWriteFuture(String requestId) {
+        this.requestId = requestId;
+        this.writeSuccess = true;
+
+    }
 
     @Override
     public boolean cancel(boolean mayInterruptIfRunning) {
@@ -53,7 +59,7 @@ public class SyncWriteFuture implements WriteFuture<Response> {
     @Override
     public void setResponse(Response response) {
         latch.countDown();
-        response = response;
+        this.response = response;
     }
 
 
@@ -63,6 +69,18 @@ public class SyncWriteFuture implements WriteFuture<Response> {
     }
 
 
+    @Override
+    public void setWriteResult(boolean success) {
+        this.writeSuccess = success;
+    }
 
+    @Override
+    public void setCause(Throwable cause) {
+        this.cause = cause;
+    }
 
+    @Override
+    public boolean isWriteSuccess() {
+        return writeSuccess;
+    }
 }

@@ -1,11 +1,9 @@
-package coder;
+package org.ciapge.coder;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
-import io.netty.util.concurrent.EventExecutorGroup;
-import utils.SerializationUtil;
+import org.ciapge.utils.SerializationUtil;
 
 import java.util.List;
 
@@ -22,7 +20,7 @@ public class RpcDecoder extends ByteToMessageDecoder {
     }
 
     @Override
-    protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf in, List<Object> out) throws Exception {
+    protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
         if (in.readableBytes() < 4) {
             return;
         }

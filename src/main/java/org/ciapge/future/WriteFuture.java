@@ -1,6 +1,6 @@
-package future;
+package org.ciapge.future;
 
-import bean.Response;
+import org.ciapge.bean.Response;
 
 import java.util.concurrent.Future;
 
@@ -13,4 +13,11 @@ public interface WriteFuture<T> extends Future<T> {
 
     void setResponse(T t);
     String getRequestId();
+
+    void setWriteResult(boolean success);
+
+    void setCause(Throwable cause);
+
+    boolean isWriteSuccess();
+
 }

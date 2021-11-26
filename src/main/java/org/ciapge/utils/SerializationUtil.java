@@ -1,4 +1,4 @@
-package utils;
+package org.ciapge.utils;
 
 import com.dyuproject.protostuff.LinkedBuffer;
 import com.dyuproject.protostuff.ProtostuffIOUtil;

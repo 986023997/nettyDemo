@@ -1,8 +1,8 @@
-package client;
+package org.ciapge.client;
 
-import bean.Response;
-import future.SyncWriteFuture;
-import future.SyncWriteMap;
+import org.ciapge.bean.Response;
+import org.ciapge.future.SyncWriteFuture;
+import org.ciapge.future.SyncWriteMap;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
@@ -11,7 +11,7 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
  * @description
  * @date 2021/11/23 17:36
  */
-public class MyClientChannelHandler extends ChannelInboundHandlerAdapter {
+public class MyClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object obj) throws Exception {
@@ -23,5 +23,11 @@ public class MyClientChannelHandler extends ChannelInboundHandlerAdapter {
         }
     }
 
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        cause.printStackTrace();
+        ctx.close();
+    }
 
 }
+
